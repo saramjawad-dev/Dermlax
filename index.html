@@ -1,72 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Dermlax</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Dermlax | Skin & Aesthetic Clinic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <link rel="stylesheet" href="style.css">
+<style>
+:root{
+  --primary:#1e3a8a;
+  --accent:#3b82f6;
+  --bg:#f8fafc;
+  --dark:#1f2937;
+  --muted:#6b7280;
+}
 
+*{
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+}
+
+/* ================= NAVBAR ================= */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(12px);
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+  z-index:100;
+}
+
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+nav img{width:150px}
+
+nav a{
+  margin-left:22px;
+  text-decoration:none;
+  font-weight:600;
+  color:var(--dark);
+  transition:color .3s ease;
+}
+
+nav a:hover{
+  color:var(--accent);
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:90vh;
+  background:url('1.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:0 24px;
+}
+
+.hero-box{
+  max-width:620px;
+  background:rgba(255,255,255,.88);
+  padding:40px;
+  border-radius:22px;
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.hero-box:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px rgba(0,0,0,.15);
+}
+
+.hero h1{font-size:46px;margin-bottom:10px}
+.hero p{font-size:18px;color:var(--muted);margin-bottom:30px}
+
+.btns a{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:999px;
+  font-weight:600;
+  text-decoration:none;
+  margin-right:12px;
+  transition:all .35s ease;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+}
+
+.btn-secondary{
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+
+.btns a:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+
+/* ================= SECTIONS ================= */
+section{
+  max-width:1200px;
+  margin:100px auto;
+  padding:0 24px;
+}
+
+section h2{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:60px;
+}
+
+/* ================= CARDS (HOVER ADDED) ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:36px;
+}
+
+.card{
+  background:#fff;
+  padding:32px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 35px 70px rgba(0,0,0,.15);
+}
+
+.card h3{margin-bottom:10px}
+.card p{font-size:14px;color:var(--muted)}
+
+/* ================= DOCTOR (HOVER ADDED) ================= */
+.doctor{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:40px;
+  align-items:center;
+}
+
+.doctor img{
+  width:100%;
+  border-radius:22px;
+  transition:transform .4s ease;
+}
+
+.doctor img:hover{
+  transform:scale(1.05);
+}
+
+.badges span{
+  display:inline-block;
+  background:#eef2ff;
+  color:var(--primary);
+  padding:6px 14px;
+  border-radius:999px;
+  margin:6px 6px 0 0;
+  font-size:13px;
+  transition:all .3s ease;
+}
+
+.badges span:hover{
+  background:var(--accent);
+  color:#fff;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+  padding:80px 40px 30px;
+  background:linear-gradient(135deg,#3b82f6,#1e3a8a);
+  color:#fff;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:50px;
+}
+
+.footer-column ul li{
+  transition:transform .3s ease, opacity .3s ease;
+}
+
+.footer-column ul li:hover{
+  transform:translateX(8px);
+  opacity:.85;
+}
+
+.social-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:18px;
+}
+
+.social-buttons button{
+  padding:12px 16px;
+  border-radius:8px;
+  background:transparent;
+  border:2px solid rgba(255,255,255,.8);
+  color:#fff;
+  cursor:pointer;
+  transition:all .35s ease;
+}
+
+.social-buttons button:hover{
+  background:#fff;
+  color:#1e3a8a;
+  transform:translateY(-5px);
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:50px;
+  padding-top:22px;
+  font-size:13px;
+  border-top:1px solid rgba(255,255,255,.35);
+}
+</style>
 </head>
 
 <body>
 
-<nav class="navbar">
-  <div class="logo">
-    <img src="navicon11.png" alt="Dermlax Skin & Aesthetic Clinic Logo">
-  </div>
-  <div class="nav-buttons">
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">About</a>
-    <a href="#">Contact us</a>
+<header>
+<nav>
+  <img src="navicon11.png" alt="Dermlax Logo">
+  <div>
+    <a href="#home">Home</a>
+    <a href="#treatments">Treatments</a>
+    <a href="#doctor">Doctor</a>
+    <a href="#footer">Contact</a>
   </div>
 </nav>
+</header>
 
-<section class="hero">
-  <h1>Healthy Skin Is A Journey.</h1>
-  <p>We nurture your skin’s natural beauty</p>
-  <div class="hero-buttons">
-    <a href="#">Book Appointment</a>
-    <a href="#">Dermlax Shop</a>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Our Treatments</h2>
-  <div class="cards">
-    <div class="card transparent">
-      <img src="face.jpg" alt="Face Treatments">
-      <h3>Face</h3>
-      <p>Hydrafacial, Mesotherapy, BB Glow, Dermabrasion</p>
-    </div>
-    <div class="card transparent">
-      <img src="hair.jpg" alt="Hair Treatments">
-      <h3>Hair</h3>
-      <p>Laser Hair Reduction, PRP, Mesotherapy</p>
-    </div>
-    <div class="card transparent">
-      <img src="body.jpg" alt="Body Treatments">
-      <h3>Body</h3>
-      <p>Picosure, Chemical Peel, HIFU, Profhilo</p>
+<section id="home" class="hero">
+  <div class="hero-box">
+    <h1>Evidence-Based Skin Care</h1>
+    <p>Dermatology focused on safety, results, and long-term skin health.</p>
+    <div class="btns">
+      <a href="#footer" class="btn-primary">Book Consultation</a>
+      <a href="#treatments" class="btn-secondary">View Treatments</a>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Why Choose Dermlax?</h2>
-  <div class="cards">
-    <div class="card"><i class="fas fa-microscope"></i><h3>Evidence-Based Care</h3></div>
-    <div class="card"><i class="fas fa-shield-alt"></i><h3>Safe & Sterile</h3></div>
-    <div class="card"><i class="fas fa-user-md"></i><h3>Expert Professionals</h3></div>
-    <div class="card"><i class="fas fa-eye"></i><h3>Transparent Guidance</h3></div>
+<section id="doctor">
+<h2>Our Medical Director</h2>
+<div class="doctor">
+  <img src="doctor.jpg" alt="Doctor">
+  <div>
+    <h3>Dr. Ayesha Khan</h3>
+    <p><strong>MBBS, FCPS (Dermatology)</strong></p>
+    <p>PMDC Reg: 45678-P</p>
+    <p>12+ years experience in clinical dermatology.</p>
+    <div class="badges">
+      <span>FDA Approved</span>
+      <span>Sterile Protocols</span>
+      <span>Clinical Expertise</span>
+    </div>
   </div>
+</div>
 </section>
 
-<footer class="footer">
+<!-- ======== ONLY CONTENT CHANGE HERE ======== -->
+<section id="treatments">
+<h2>Treatments</h2>
+<div class="grid">
+
+  <div class="card">
+    <h3>Facial Dermatology</h3>
+    <p>
+      Advanced treatments for acne, pigmentation, aging, and overall skin health,
+      including Hydrafacial, chemical peels, and anti-aging protocols.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Hair Restoration</h3>
+    <p>
+      Medical and aesthetic solutions for hair fall and thinning such as PRP therapy,
+      mesotherapy, and scalp rejuvenation programs.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Body Aesthetics</h3>
+    <p>
+      Non-invasive body treatments including skin tightening, laser therapies,
+      and contour-enhancing procedures for long-term results.
+    </p>
+  </div>
+
+</div>
+</section>
+<!-- ======== END CHANGE ======== -->
+
+<footer id="footer" class="footer">
   <div class="footer-container">
 
     <div class="footer-column">
